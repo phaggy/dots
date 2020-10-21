@@ -1,0 +1,15 @@
+*
+!polybar
+!polybar/*
+!polybar/themes/*
+!polybar/scripts/*
+!polybar/modules/*
+!alacritty
+!alacritty/*
+!bspwm
+!bspwm/*
+!sxhkd
+!sxhkd/*
+!dunst
+!dunst/*
+!.gitignore
