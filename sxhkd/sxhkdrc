@@ -27,19 +27,8 @@ super + s
         flameshot gui
          
 # VScode
-super + c
+alt + c
         code  
-
-# media keys
-alt + F12
- dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
-
-alt + F10%a   %I:%M %p
-
- dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
-
-alt + F11
- dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
 
 # volume
 # Increase volume
