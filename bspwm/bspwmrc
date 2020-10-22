@@ -35,5 +35,6 @@ bspc config presel_feedback_color "$color1"
 #nitrogen --restore & 
 wal -R
 picom --vsync &
+pkill dunst &
 dunst &
 ~/.config/polybar/launch.sh &
