@@ -11,13 +11,17 @@ THEME=solarized
 # Color Settings of Icon shown in Polybar
 COLOR_DISCONNECTED='#000'       # Device Disconnected
 COLOR_NEWDEVICE='#ff0'          # New Device
-COLOR_BATTERY_90='#fff'         # Battery >= 90
-COLOR_BATTERY_80='#ccc'         # Battery >= 80
-COLOR_BATTERY_70='#aaa'         # Battery >= 70
-COLOR_BATTERY_60='#888'         # Battery >= 60
-COLOR_BATTERY_50='#666'         # Battery >= 50
-COLOR_BATTERY_LOW='#f00'        # Battery <  50
-
+COLOR_BATTERY_90='#7cfc11'         # Battery >= 90
+COLOR_BATTERY_80='#7de710'         # Battery >= 80
+COLOR_BATTERY_70='#7ed20e'         # Battery >= 70
+COLOR_BATTERY_60='#80bd0d'         # Battery >= 60
+COLOR_BATTERY_50='#81a80b'         # Battery >= 50
+COLOR_BATTERY_40='#82930a'         # Battery >= 50
+COLOR_BATTERY_30='#847e08'         # Battery >= 50
+COLOR_BATTERY_20='#865406'         # Battery >= 50
+COLOR_BATTERY_15='#873f04'         # Battery >= 50
+COLOR_BATTERY_10='#8a1501'         # Battery >= 50
+COLOR_BATTERY_LOW='#8b0000'        # Battery <  50
 # Icons shown in Polybar
 ICON_SMARTPHONE=''
 #ICON_TABLET=''
@@ -97,6 +101,11 @@ get_icon () {
     case $1 in
     "-1")     ICON="%{F$COLOR_DISCONNECTED}$icon%{F-}" ;;
     "-2")     ICON="%{F$COLOR_NEWDEVICE}$icon%{F-}" ;;
+    10)     ICON="%{F$COLOR_BATTERY_10}$icon%{F-}" ;;
+    15)     ICON="%{F$COLOR_BATTERY_15}$icon%{F-}" ;;
+    2*)     ICON="%{F$COLOR_BATTERY_20}$icon%{F-}" ;;
+    3*)     ICON="%{F$COLOR_BATTERY_30}$icon%{F-}" ;;
+    4*)     ICON="%{F$COLOR_BATTERY_40}$icon%{F-}" ;;
     5*)     ICON="%{F$COLOR_BATTERY_50}$icon%{F-}" ;;
     6*)     ICON="%{F$COLOR_BATTERY_60}$icon%{F-}" ;;
     7*)     ICON="%{F$COLOR_BATTERY_70}$icon%{F-}" ;;
