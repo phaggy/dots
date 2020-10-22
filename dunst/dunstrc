@@ -3,7 +3,7 @@ title = Dunst
 class = Dunst
 monitor = 0
 follow = mouse
-geometry = "250x6-24+53"
+geometry = "0x0-3+40"
 indicate_hidden = yes
 shrink = yes
 
