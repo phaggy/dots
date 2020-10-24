@@ -29,12 +29,19 @@ bspc config presel_feedback_color "$color1"
 # Use the line below if you are on bspwm < 0.9.4
 #bspc config presel_border_color "$color1"
 
+bspc config desktop=^2 state=floating
 
 # autostart
 
-#nitrogen --restore & 
+#nitrogen --restore &
+xset +fp /home/ray/.local/share/fonts
+xset fp rehash
+
 wal -R
+
 picom --vsync &
+
 pkill dunst &
 dunst &
+
 ~/.config/polybar/launch.sh &
