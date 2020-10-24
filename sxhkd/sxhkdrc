@@ -45,7 +45,7 @@ XF86AudioMute
 
 # backlight
 XF86MonBrightness{Down,Up}
-    light {-U 10,-A 10}
+    light {-U 4,-A 4}
 
 # bspwm hotkeys
 
