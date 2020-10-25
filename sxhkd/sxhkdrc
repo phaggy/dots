@@ -12,7 +12,7 @@ super + d
 
 # Ranger 
 super + e 
-        ranger
+        alacritty -e ranger
 
 # firefox
 super + b
@@ -29,6 +29,9 @@ super + s
 # VScode
 alt + c
         code  
+
+alt + shift + ctrl + b
+        backup.sh
 
 # volume
 # Increase volume
