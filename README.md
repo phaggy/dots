@@ -1,3 +1,7 @@
 # .config
+My Arch Linux dotfiles
 
-All changes must be pushed to testing although stable is the default branch
+
+
+CONTRIBUING
+All changes must be pushed to testing(or a new branch) although stable is the default branch
