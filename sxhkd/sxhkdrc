@@ -30,6 +30,9 @@ super + s
 alt + c
         code  
 
+alt + shift + ctrl + b
+        backup.sh
+
 # volume
 # Increase volume
 XF86AudioRaiseVolume
