@@ -1,3 +1,3 @@
 # .config
 
-All changes must be pushed to experimental although stable is the default branch
+All changes must be pushed to testing although stable is the default branch
