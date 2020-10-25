@@ -12,7 +12,7 @@ super + d
 
 # Ranger 
 super + e 
-        ranger
+        alacritty -e ranger
 
 # firefox
 super + b
