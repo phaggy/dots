@@ -12,4 +12,6 @@
 !sxhkd/*
 !dunst
 !dunst/*
+!fonts
+!fonts/*
 !.gitignore
