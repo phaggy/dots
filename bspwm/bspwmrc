@@ -44,4 +44,6 @@ picom --vsync &
 pkill dunst &
 dunst &
 
+flameshot &
+
 ~/.config/polybar/launch.sh &
