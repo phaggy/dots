@@ -90,7 +90,7 @@
 
     ### Text ###
 
-     = Jetbrains Mono Nerd Font Medium
+    font = Jetbrains Mono Nerd Font Medium
 
     # The spacing between lines.  If the height is smaller than the
     #  height, it will get raised to the  height.
