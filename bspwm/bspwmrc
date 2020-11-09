@@ -46,4 +46,7 @@ dunst &
 
 flameshot &
 
+export CALIBRE_USE_DARK_PALETTE=1
+export QT_QPA_PLATFORMTHEME=qt5ct
+
 ~/.config/polybar/launch.sh &
