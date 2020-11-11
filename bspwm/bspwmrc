@@ -39,12 +39,12 @@ xset fp rehash
 
 wal -R
 
-picom --vsync &
+picom --vsync 
 
-pkill dunst &
-dunst &
+pkill dunst
+dunst
 
-flameshot &
+flameshot
 
 export CALIBRE_USE_DARK_PALETTE=1
 export QT_QPA_PLATFORMTHEME=qt5ct
