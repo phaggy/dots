@@ -42,7 +42,7 @@ xset fp rehash
 
 wal -R &
 
-picom -b --experimental-backend &
+picom --vsync &
 
 pkill "dunst"
 dunst &
