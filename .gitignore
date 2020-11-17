@@ -12,6 +12,13 @@
 !sxhkd/*
 !dunst
 !dunst/*
+!rofi
+!rofi/*
+!ranger
+!ranger/*
 !fonts
 !fonts/*
 !.gitignore
+!.vimrc
+!nvim
+!nvim/*
