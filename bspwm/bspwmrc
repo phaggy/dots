@@ -49,6 +49,7 @@ dunst &
 
 flameshot &
 
-gtk-launch org.kde.kdeconnect.nonplasma.desktop &
-
 ~/.config/polybar/launch.sh &
+
+sleep 3
+gtk-launch org.kde.kdeconnect.nonplasma.desktop &
