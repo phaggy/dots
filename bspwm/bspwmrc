@@ -40,7 +40,7 @@ bspc config focus_follows_pointer true
 xset +fp /home/ray/.local/share/fonts
 xset fp rehash
 
-nitrogen --restore &
+wal -R &
 
 picom --vsync &
 
@@ -49,6 +49,7 @@ dunst &
 
 flameshot &
 
-gtk-launch org.kde.kdeconnect.nonplasma.desktop &
-
 ~/.config/polybar/launch.sh &
+
+sleep 3
+gtk-launch org.kde.kdeconnect.nonplasma.desktop &
