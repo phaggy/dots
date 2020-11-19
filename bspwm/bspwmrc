@@ -40,7 +40,7 @@ bspc config focus_follows_pointer true
 xset +fp /home/ray/.local/share/fonts
 xset fp rehash
 
-wal -R &
+nitrogen --restore &
 
 picom --vsync &
 
