@@ -1,0 +1,25 @@
+padding=8
+margin=17,17,2,2
+background-color=#0a0c0d
+border-color=#282828
+border-radius=5
+border-size=7
+text-color=#ffffff
+font=Jetbrains Mono Nerd Font Medium
+max-icon-size=32
+default-timeout=3200
+icon-path=/usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+max-visible=3
+
+[urgency=low]
+background-color=#0a0c0d
+text-color=#FFFFFF
+
+[urgency=normal]
+background-color=#0a0c0d
+text-color=#ffffff
+
+[urgency=high]
+background-color=#900000
+text-color=#ffffff
+
