@@ -122,3 +122,4 @@ include /etc/sway/config.d/*
 border_images.focused $HOME/.config/sway/shadows.png
 
 exec waybar
+exec mako
