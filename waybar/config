@@ -59,7 +59,7 @@
         }
     },
     "tray": {
-        // "icon-size": 14,
+        // "icon-size": 13,
         "spacing": 10
     },
     "clock": {
@@ -96,18 +96,18 @@
         },
         "format": "{icon} {capacity}",
         "format-charging": "󰁹{capacity}",
-        "format-plugged": "{capacity} ",
+        "format-plugged": "󱐋{capacity}",
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": ["󰁺","󰁺","󰁻","󰁼","󰁾","󰁾","󰁿","󰂀","󰂂","󱈏"]
     },
     "battery#bat2": {
         "bat": "BAT2"
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid}  ",
+        "format-wifi": "{essid} 󰤨",
         "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
@@ -118,7 +118,7 @@
         "format": "{icon} {volume}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
+        "format-muted": "󰖁",
         "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
