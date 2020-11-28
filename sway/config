@@ -4,9 +4,9 @@ set $mod Mod4
 #set $up k
 #set $right l
 set $term alacritty
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
+set $menu rofi -show drun
 
-output * bg ~/Pictures/wallpapers/Rough Waves.jpg fill
+output * bg ~/Pictures/2848c2cb50e0b7a9893217e6453c7820.jpg fill
 
     bindsym $mod+b exec firefox
 
@@ -103,7 +103,7 @@ mode "resize" {
 
 bindsym $mod+shift+r mode "resize"
 
-input 2:7:SynPS/2_Synaptics_TouchPad {
+input 2:14:ETPS/2_Elantech_Touchpad {
     left_handed disabled
     tap enabled
     natural_scroll disabled
@@ -119,7 +119,7 @@ exec_always --no-startup-id autotiling
 
 include /etc/sway/config.d/*
 
-border_images.focused $HOME/.config/sway/shadows.png
+#border_images.focused $HOME/.config/sway/shadows.png
 
 exec waybar
 exec mako
