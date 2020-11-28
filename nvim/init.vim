@@ -14,11 +14,24 @@ Plug 'chrisbra/Colorizer'
 Plug 'tpope/vim-surround' 
 Plug 'mattn/emmet-vim'
 Plug 'neoclide/coc.nvim'
-Plug 'junegunn/fzf' 
+Plug 'neoclide/coc-eslint'
+Plug 'neoclide/coc-prettier'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'morhetz/gruvbox'
-
+Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
+Plug 'jiangmiao/auto-pairs' " closes brackets
+Plug 'ryanoasis/vim-devicons' " icons for nerd tree
+"Plug 'HerringtonDarkholme/yats.vim' " syntax highlighting for jsx and typescript
+Plug 'airblade/vim-gitgutter' " shows git changes in files
 " Initialize plugin system
+Plug 'epilande/vim-react-snippets' 
+Plug 'SirVer/ultisnips'
+
 call plug#end()
+
+let g:UltiSnipsExpandTrigger="<C-l>"
 
 map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeChDirMode=2
@@ -27,6 +40,10 @@ let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
 let g:NERDTreeShowBookmarks=1
 let g:nerdtree_tabs_focus_on_files=1
 let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
+
+map <C-d> :Files<CR>
+
+nnoremap <silent> K :call CocAction('doHover')<CR>
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 set number
@@ -173,8 +190,8 @@ endif
 
 " Use CTRL-S for selections ranges.
 " Requires 'textDocument/selectionRange' support of language server.
-nmap <silent> <C-s> <Plug>(coc-range-select)
-xmap <silent> <C-s> <Plug>(coc-range-select)
+"nmap <silent> <C-s> <Plug>(coc-range-select)
+"xmap <silent> <C-s> <Plug>(coc-range-select)
 
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
