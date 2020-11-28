@@ -124,7 +124,7 @@ font JetBrainsMono 10
 gaps inner 10
 default_border none
 exec "wal -R"
-exec_always --no-startup-id autotiling
+exec autotiling
 
 include /etc/sway/config.d/*
 
