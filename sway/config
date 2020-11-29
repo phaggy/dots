@@ -6,7 +6,7 @@ set $mod Mod4
 set $term alacritty
 set $menu rofi -show drun
 
-output * bg ~/Pictures/2848c2cb50e0b7a9893217e6453c7820.jpg fill
+output * bg ~/Pictures/wallpapers/Rough Seas.jpg fill
 
 bindsym $mod+b exec firefox
 
@@ -132,5 +132,3 @@ include /etc/sway/config.d/*
 
 exec waybar
 exec mako
-
-include /etc/sway/config.d/*
