@@ -6,7 +6,7 @@ set $mod Mod4
 set $term alacritty
 set $menu rofi -show drun
 
-output * bg ~/Pictures/wallpapers/Rough Seas.jpg fill
+output * bg /usr/share/backgrounds/default.png fill
 
 bindsym $mod+b exec firefox
 
