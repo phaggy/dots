@@ -93,6 +93,8 @@ bindsym $mod+Shift+minus move scratchpad
 
 bindsym $mod+minus scratchpad show
 
+exec autotiling
+
 mode "resize" {
 #bindsym $left resize shrink width 10px
 #bindsym $down resize grow height 10px
@@ -124,7 +126,6 @@ font JetBrainsMono 10
 gaps inner 10
 default_border none
 exec "wal -R"
-exec autotiling
 
 include /etc/sway/config.d/*
 

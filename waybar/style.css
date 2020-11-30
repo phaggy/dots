@@ -16,7 +16,7 @@ window#waybar {
 
 #workspaces button {
   background-color: @background;
-  padding: 0 0 0 3px;
+  padding: 0 3px 0 3px;
   color: @foreground;
 }
 
