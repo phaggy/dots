@@ -9,6 +9,13 @@
     "modules-center": ["clock"],
     "modules-right": ["pulseaudio", "network", "battery", "tray"],
      "sway/workspaces": {
+     "persistent_workspaces": {
+        "1": [],
+        "2": [],
+        "3": [], 
+        "4": [], 
+        "5": []
+    },
          "disable-scroll": true,
          "all-outputs": true,
          "format": "{icon}",

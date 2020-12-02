@@ -16,7 +16,7 @@ window#waybar {
 
 #workspaces button {
   background-color: @background;
-  padding: 0 3px 0 3px;
+  padding: 0 2px 0 2px;
   color: @foreground;
 }
 
@@ -29,6 +29,11 @@ window#waybar {
   background-color: @background;
   color: @foreground;
   box-shadow: inset 0 -1px #887E61;
+}
+
+#workspaces button.persistent {
+  background-color: @background;
+  color: @background;
 }
 
 #workspaces button.urgent {
