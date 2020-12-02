@@ -39,7 +39,7 @@ case $dist in
            ;;
   'arch')
         case $br in
-          'ol')
+          'oL')
            #checking if yay is installed
            if ! hash yay > /dev/null;
            then
@@ -57,10 +57,15 @@ case $dist in
            
            echo 'symlinkin'
            for prog in ${progs[@]}; do
-             if [ $prog != 'vim' ] || [ $prog != 'snap' ] then
+             if [ $prog != 'vim' ] then
                ln -sv $HOME/dots/$prog $HOME/.config
              fi
            done
+
+           for prog in ${aurProgs[@]}; do
+             ln -sv $HOME/dots/$prog $HOME/.config
+           done
+
            ln -sv $HOME/dots/.vimrc $HOME/
            ln -sv $HOME/dots/nvim $HOME/.config
            
@@ -70,5 +75,7 @@ case $dist in
            yay -S ${snapProgs[@]}       
 
            wal -s -i $HOME/dots/pics/main.png
+           ;;
+       esac
 ;;
 esac

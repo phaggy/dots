@@ -19,6 +19,7 @@
     "css"
   ],
   "html.format.indentInnerHtml":true,
-  "html.autoClosingTags":true
+  "html.autoClosingTags":true,
+  "sh.enable":true
 }
 
