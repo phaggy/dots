@@ -7,7 +7,7 @@
 
     "modules-left": ["sway/workspaces", "custom/media"],
     "modules-center": ["clock"],
-    "modules-right": ["pulseaudio", "network", "battery", "tray"],
+    "modules-right": ["network", "battery", "pulseaudio", "tray"],
      "sway/workspaces": {
      "persistent_workspaces": {
         "1": [],
@@ -109,12 +109,14 @@
         // "format-full": "",
         "format-icons": ["󰁺","󰁺","󰁻","󰁼","󰁾","󰁾","󰁿","󰂀","󰂂","󱈏"]
     },
+
     "battery#bat2": {
         "bat": "BAT2"
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} 󰤨",
+        "format-wifi": "{icon}",
+        "format-icons": ["󰤢","󰤥","󰤨"],
         "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",

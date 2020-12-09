@@ -55,12 +55,6 @@ window#waybar {
   padding : 0 2px 0 10px;
 }
 
-#battery.status {
-  font-size: 1px;
-  color: @foreground;
-
-}
-
 #battery.charging {
   color: #ffffff;
   background-color: @background;
@@ -78,13 +72,14 @@ window#waybar {
 
 #network {
   padding : 0 10px 0 10px;
-  font-size: 14px;
+  font-size: 17px;
   background-color: @background; 
-  color: @foreground;
+  color: #8FBCBB;
 }
 
 #network.disconnected {
-  background-color: #f53c3c;
+  background-color: @background;
+  color: #f53c3c;
 }
 
 #pulseaudio {
@@ -96,7 +91,7 @@ window#waybar {
 
 #pulseaudio.muted {
   background-color: @background;
-  color: #2a5c45;
+  color: #D08770;
 }
 
 #tray {
