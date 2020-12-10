@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo 'Arch or Fedora?'
 read dist
 
@@ -5,8 +7,11 @@ echo 'desktop laptop or otherLaptop?'
 echo 'd l or oL'
 read br
 
-echo 'installing pywal'
-pip3 install --user pywal
+echo 'wayland, xorg or both?'
+echo 'w x11 or  both'
+read dispProt
+
+
 
 echo 'cloning dots'
 git clone 'https://github.com/phaggy/dots'
@@ -25,13 +30,16 @@ case $dist in
            
            echo 'symlinkin'
            for prog in ${progs[@]}; do
-             if [ $prog != 'vim' ] || [ $prog != 'snap' ] then
+             if [ $prog != 'vim' || != 'snap' ]
+             then
                ln -sv $HOME/dots/$prog $HOME/.config
              fi
            done
            ln -sv $HOME/dots/.vimrc $HOME/
            ln -sv $HOME/dots/nvim $HOME/.config
-           
+
+           echo 'installing pywal'
+           pip3 install --user pywal
            echo 'installing progs'
            
            sudo dnf install ${progs[@]}
@@ -52,12 +60,13 @@ case $dist in
            cd $HOME/dots
            git chekcout otherLaptop
        
-           progs=('alacritty' 'kitty' 'vim' 'sway' 'mako' 'ranger' 'rofi' 'waybar' 'fish' 'discord' 'spotify')
-           aurProgs=('nvim')
+           progs=('alacritty' 'kitty' 'vim' 'sway' 'mako' 'ranger' 'rofi' 'waybar' 'fish' 'discord')
+           aurProgs=('nvim' 'pywal' 'spotify')
            
            echo 'symlinkin'
            for prog in ${progs[@]}; do
-             if [ $prog != 'vim' ] then
+             if [ $prog != 'vim' || != 'fish' || != 'discord' ]
+             then
                ln -sv $HOME/dots/$prog $HOME/.config
              fi
            done
@@ -72,7 +81,7 @@ case $dist in
            echo 'installing progs'
            
            sudo pacman -S ${progs[@]}
-           yay -S ${snapProgs[@]}       
+           yay -S ${aurProgs[@]}       
 
            wal -s -i $HOME/dots/pics/main.png
            ;;
