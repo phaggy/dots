@@ -4,8 +4,7 @@ set $mod Mod4
 #set $up k
 #set $right l
 set $term alacritty
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
-
+set $menu rofi -show drun
 output * bg ~/Pictures/wallpapers/Rough Waves.jpg fill
 
 bindsym $mod+b exec firefox
