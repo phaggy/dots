@@ -130,10 +130,10 @@ font JetBrainsMono 10
 gaps inner 10
 default_border none
 exec "wal -R"
-
-include /etc/sway/config.d/*
-
-#border_images.focused $HOME/.config/sway/shadows.png
-
 exec waybar
 exec mako
+exec /usr/bin/lxpolkit
+exec /usr/libexec/kdeconnectd
+exec 
+
+include /etc/sway/config.d/*
