@@ -134,6 +134,6 @@ exec waybar
 exec mako
 exec /usr/bin/lxpolkit
 exec /usr/libexec/kdeconnectd
-exec 
+exec "gtk-launch org.kde.kdeconnect.nonplasma.desktop"
 
 include /etc/sway/config.d/*
