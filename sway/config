@@ -133,5 +133,7 @@ exec_always --no-startup-id autotiling
 border_images.focused $HOME/.config/sway/shadows.png
 exec waybar
 exec mako
+exec polkit-dumb-agent
+exec /usr/lib/kdeconnectd
 
 include /etc/sway/config.d/*
