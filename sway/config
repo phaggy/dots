@@ -128,6 +128,7 @@ input 2:7:SynPS/2_Synaptics_TouchPad {
 font JetBrainsMono 10
 gaps inner 10
 default_border none
+
 exec "wal -R"
 exec_always --no-startup-id autotiling
 border_images.focused $HOME/.config/sway/shadows.png
@@ -135,5 +136,6 @@ exec waybar
 exec mako
 exec polkit-dumb-agent
 exec /usr/lib/kdeconnectd
+exec "gtk-launch org.kde.kdeconnect.nonplasma.desktop"
 
 include /etc/sway/config.d/*
