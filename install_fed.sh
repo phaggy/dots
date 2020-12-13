@@ -11,17 +11,10 @@ echo 'wayland, xorg or both?'
 echo 'w x11 or  both'
 read dispProt
 
-
-
-echo 'cloning dots'
-git clone 'https://github.com/phaggy/dots'
-cp dots $HOME/
-
-
 case $dist in 
   'fed')
-       case $br in
-         'oL')
+       if [ $br == 'oL']
+       then
          cd dots
          git chekcout otherLaptop
        
@@ -44,39 +37,39 @@ case $dist in
            
            sudo dnf install ${progs[@]}
            sudo snap install ${snapProgs[@]}
-           ;;
+	fi
+        ;;
   'arch')
-        case $br in
-          'oL')
+        if [ $br == 'oL' ]
+	then
            #checking if yay is installed
            if ! hash yay > /dev/null;
            then
              echo 'yay not installed, installing'
+	     sudo pacman -S --needed base-devel
              git clone 'https://aur.archlinux.org/yay.git'
              cd yay
              makepkg -si
            fi
            
-           cd $HOME/dots
-           git chekcout otherLaptop
+           cd dots
+
+           git checkout otherLaptop
        
-           progs=('alacritty' 'kitty' 'vim' 'sway' 'mako' 'ranger' 'rofi' 'waybar' 'fish' 'discord')
-           aurProgs=('nvim' 'pywal' 'spotify')
+           progs=('alacritty' 'kitty' 'vim' 'sway' 'mako' 'ranger' 'rofi' 'waybar' 'fish' 'discord' 'neovim' 'python-pywal' )
+           aurProgs=('spotify')
            
            echo 'symlinkin'
            for prog in ${progs[@]}; do
-             if [ $prog != 'vim' || != 'fish' || != 'discord' ]
-             then
-               ln -sv $HOME/dots/$prog $HOME/.config
+	     echo $prog
+             if [[ "$prog" != "vim" ]] || [[ "$prog" != "fish" ]] || [[ "$prog" != "discord" ]] || [[ "$prog" != "neovim" ]] || [[ "$prog" != "python-pywal" ]]; then
+	       echo $prog
+               #ln -sv $HOME/dots/$prog $HOME/.config/
              fi
            done
-
-           for prog in ${aurProgs[@]}; do
-             ln -sv $HOME/dots/$prog $HOME/.config
-           done
-
+           
            ln -sv $HOME/dots/.vimrc $HOME/
-           ln -sv $HOME/dots/nvim $HOME/.config
+           ln -sv $HOME/dots/nvim $HOME/.config/
            
            echo 'installing progs'
            
@@ -84,7 +77,6 @@ case $dist in
            yay -S ${aurProgs[@]}       
 
            wal -s -i $HOME/dots/pics/main.png
-           ;;
-       esac
-;;
+	fi
+	;;
 esac
