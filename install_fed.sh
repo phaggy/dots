@@ -56,27 +56,43 @@ case $dist in
 
            git checkout otherLaptop
        
-           progs=('alacritty' 'kitty' 'vim' 'sway' 'mako' 'ranger' 'rofi' 'waybar' 'fish' 'discord' 'neovim' 'python-pywal' )
-           aurProgs=('spotify')
+           progs=('alacritty' 'kitty' 'vim' 'sway' 'mako' 'ranger' 'rofi' 'waybar' 'fish' 'discord' 'neovim' 'python-pywal' 'firefox' 'qt5ct' 'lxappearance' 'python-pip' 'nodejs' 'light' 'polkit' 'kdeconnect' 'gparted' 'openssh')
+           symProgs=('alacritty' 'kitty' 'vim' 'sway' 'mako' 'ranger' 'rofi' 'waybar')
+           aurProgs=('spotify' 'appimagelauncher' 'polkit-dumb-agent-git')
            
            echo 'symlinkin'
-           for prog in ${progs[@]}; do
-	     echo $prog
-             if [[ "$prog" != "vim" ]] || [[ "$prog" != "fish" ]] || [[ "$prog" != "discord" ]] || [[ "$prog" != "neovim" ]] || [[ "$prog" != "python-pywal" ]]; then
-	       echo $prog
-               #ln -sv $HOME/dots/$prog $HOME/.config/
-             fi
+           for prog in ${symProgs[@]}; do
+	           rm -frv $HOME/.config/$prog
+             ln -sv $HOME/dots/$prog $HOME/.config/
            done
            
+	   rm -frv $HOME/.vimrc
            ln -sv $HOME/dots/.vimrc $HOME/
+	   rm -frv $HOME/.config/nvim
            ln -sv $HOME/dots/nvim $HOME/.config/
            
            echo 'installing progs'
            
-           sudo pacman -S ${progs[@]}
-           yay -S ${aurProgs[@]}       
+     sudo pacman -S ${progs[@]}
+     yay -S ${aurProgs[@]}       
 
-           wal -s -i $HOME/dots/pics/main.png
+	   python3 -m pip install --user pynvim
+	   curl -L https://get.oh-my.fish | fish
+     wget -nc "https://vault.bitwarden.com/download/?app=desktop&platform=linux" -O ~/Downloads/Bitwaren.appimage
+
+     wal -s -i /usr/share/backgrounds/default.jpg
+     rm -v $HOME/.config/waybar/colors-waybar.css
+     ln -sv $HOME/.cache/wal/colors-waybar.css $HOME/.config/waybar/
+	
+	   echo "copying fonts"
+	   sudo cp $(pwd)/fonts/materialdesignicons-webfont.ttf /usr/share/fonts
+	   sudo cp $(pwd)/fonts/'JetBrains Mono Bold Italic Nerd Font Complete.ttf' /usr/share/fonts
+     
+     #echo "setting environment variables"
+     #touch ~/.profile
+     #echo "MOZ_ENABLE_WAYLAND=1" > ~/.profile
+     #echo "exec fish" >> ~/.bashrc
+
 	fi
 	;;
 esac
