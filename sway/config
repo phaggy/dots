@@ -4,9 +4,10 @@ set $mod Mod4
 #set $up k
 #set $right l
 set $term alacritty
-set $menu rofi -show drun
+set $menu wofi --show drun --allow-images
 
-output * bg /usr/share/backgrounds/default.png fill
+exec "wal -R"
+output * bg /usr/share/backgrounds/default.jpg fill
 
 bindsym $mod+b exec firefox
 
@@ -97,8 +98,6 @@ bindsym $mod+m layout stacking
 
 bindsym $mod+n layout toggle split
 
-exec autotiling
-
 mode "resize" {
 #bindsym $left resize shrink width 10px
 #bindsym $down resize grow height 10px
@@ -129,11 +128,9 @@ input 2:14:ETPS/2_Elantech_Touchpad {
 font JetBrainsMono 10
 gaps inner 10
 default_border none
-exec "wal -R"
 exec waybar
 exec mako
-exec /usr/bin/lxpolkit
-exec /usr/libexec/kdeconnectd
+exec /usr/bin/polkit-dumb-agent
 exec "gtk-launch org.kde.kdeconnect.nonplasma.desktop"
 
 include /etc/sway/config.d/*
