@@ -46,6 +46,14 @@ let g:nerdtree_tabs_focus_on_files=1
 let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
 
 map <C-d> :Files<CR>
+" fuzzy search
+map <C-g> :G<CR>
+" git status
+map <C-a> :Gwrite<CR>
+" git add
+map <C-g>r :Git restore --staged ''%:p''<CR>
+" removes staged file
+map <C-c> :Git commit<CR>
 
 nnoremap <silent> K :call CocAction('doHover')<CR>
 
