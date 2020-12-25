@@ -25,11 +25,14 @@ Plug 'jiangmiao/auto-pairs' " closes brackets
 Plug 'ryanoasis/vim-devicons' " icons for nerd tree
 "Plug 'HerringtonDarkholme/yats.vim' " syntax highlighting for jsx and typescript
 Plug 'airblade/vim-gitgutter' " shows git changes in files
-" Initialize plugin system
 Plug 'epilande/vim-react-snippets' 
 Plug 'SirVer/ultisnips'
 Plug 'psf/black', { 'branch': 'stable' }
 
+" git add and commit from vim itself
+Plug 'tpope/vim-fugitive'
+
+" Initialize plugin system
 call plug#end()
 
 let g:UltiSnipsExpandTrigger="<C-l>"
