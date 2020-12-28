@@ -125,6 +125,12 @@ input 2:14:ETPS/2_Elantech_Touchpad {
     pointer_accel 0.1 # set mouse sensitivity (between -1 and 1)
 }
 
+for_window [app_id="zoom"] floating enable
+for_window [app_id="polkit-dumb-agent"] floating enable
+
+border_images.focused $HOME/dots/sway/rounded_and_shadows_small.png
+border_images.unfocused $HOME/dots/sway/rounded_small.png
+
 font JetBrainsMono 10
 gaps inner 10
 default_border none

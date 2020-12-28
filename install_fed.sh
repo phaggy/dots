@@ -56,9 +56,9 @@ case $dist in
 
            git checkout otherLaptop
        
-           progs=('alacritty' 'kitty' 'vim' 'sway' 'mako' 'ranger' 'rofi' 'waybar' 'fish' 'discord' 'neovim' 'python-pywal' 'firefox' 'qt5ct' 'lxappearance' 'python-pip' 'nodejs' 'light' 'polkit' 'kdeconnect' 'gparted' 'openssh' 'pulseaudio' 'xdg-user-dirs' 'man-db')
+           progs=('alacritty' 'kitty' 'vim' 'mako' 'ranger' 'rofi' 'waybar' 'fish' 'discord' 'neovim' 'python-pywal' 'firefox' 'qt5ct' 'lxappearance' 'python-pip' 'nodejs' 'light' 'polkit' 'kdeconnect' 'gparted' 'openssh' 'pulseaudio' 'xdg-user-dirs' 'man-db' 'adobe-source-han-sans-otc-fonts' 'cronie')
            symProgs=('alacritty' 'kitty' 'vim' 'sway' 'mako' 'ranger' 'rofi' 'waybar')
-           aurProgs=('spotify' 'appimagelauncher' 'polkit-dumb-agent-git')
+           aurProgs=('spotify' 'spotify-adblock-git' 'ttf-kannada-font' 'appimagelauncher' 'polkit-dumb-agent-git' 'sway-borders-git')
            
            echo 'symlinkin'
            for prog in ${symProgs[@]}; do
