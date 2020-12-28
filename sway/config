@@ -134,9 +134,10 @@ border_images.unfocused $HOME/dots/sway/rounded_small.png
 font JetBrainsMono 10
 gaps inner 10
 default_border none
-exec waybar
+exec_always "launchwaybar"
 exec mako
 exec /usr/bin/polkit-dumb-agent
 exec "gtk-launch org.kde.kdeconnect.nonplasma.desktop"
+exec_always '$HOME/dots/sway/import-gtk-settings'
 
 include /etc/sway/config.d/*
