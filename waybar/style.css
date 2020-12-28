@@ -14,8 +14,16 @@ window#waybar {
   transition-duration: 1.5s;
 }
 
+#workspaces {
+  border-radius: 9px;
+  background-color: @color12;
+  margin: 2px 0 2px 7px;
+  padding: 0 2px 0 2px;
+}
+
 #workspaces button {
-  background-color: @background;
+  margin: 0;
+  background-color: transparent;
   padding: 0 2px 0 2px;
   color: @foreground;
 }
@@ -26,14 +34,12 @@ window#waybar {
 }
 
 #workspaces button.focused {
-  background-color: @background;
   color: @foreground;
-  box-shadow: inset 0 -1px #887E61;
+  box-shadow: inset 0 -3px @color7;
 }
 
 #workspaces button.persistent {
-  background-color: @background;
-  color: @background;
+  color: @color12;
 }
 
 #workspaces button.urgent {
