@@ -16,16 +16,16 @@ window#waybar {
 
 #workspaces {
   border-radius: 9px;
-  background-color: @color12;
+  background-color: @color6;
   margin: 2px 0 2px 7px;
-  padding: 0 2px 0 2px;
+  padding: 0 4px 0 4px;
 }
 
 #workspaces button {
   margin: 0;
   background-color: transparent;
   padding: 0 2px 0 2px;
-  color: @foreground;
+  color: @color1;
 }
 
 #workspaces button.visible {
@@ -34,12 +34,12 @@ window#waybar {
 }
 
 #workspaces button.focused {
-  color: @foreground;
-  box-shadow: inset 0 -3px @color7;
+  color: @color1;
+  box-shadow: inset 0 -3px @color3;
 }
 
 #workspaces button.persistent {
-  color: @color12;
+  color: transparent;
 }
 
 #workspaces button.urgent {
