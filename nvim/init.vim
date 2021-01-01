@@ -28,6 +28,7 @@ Plug 'airblade/vim-gitgutter' " shows git changes in files
 " Initialize plugin system
 Plug 'epilande/vim-react-snippets' 
 Plug 'SirVer/ultisnips'
+Plug 'psf/black', { 'branch': 'stable' }
 
 call plug#end()
 
