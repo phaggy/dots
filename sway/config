@@ -13,6 +13,8 @@ bindsym $mod+b exec firefox
 
 bindsym $mod+e exec "kitty -e ranger"
 
+bindsym $mod+c exec '$term -e nvim'
+
 bindsym $mod+Return exec $term
 
 bindsym $mod+q kill
@@ -126,17 +128,19 @@ input 2:14:ETPS/2_Elantech_Touchpad {
 }
 
 for_window [app_id="zoom"] floating enable
-for_window [app_id="polkit-dumb-agent"] floating enable
-
+for_window [app_id="firefox"] floating enable
+for_window [app_id="Steam"] floating enable
+for_window [app_id="lxqt-policykit-agent"] floating enable
 border_images.focused $HOME/dots/sway/rounded_and_shadows_small.png
 border_images.unfocused $HOME/dots/sway/rounded_small.png
 
 font JetBrainsMono 10
 gaps inner 10
 default_border none
-exec_always "launchwaybar"
+exec_always 'launchwaybar'
 exec mako
-exec /usr/bin/polkit-dumb-agent
+exec /usr/lib/kdeconnectd
+exec /usr/bin/lxqt-policykit-agent
 exec "gtk-launch org.kde.kdeconnect.nonplasma.desktop"
 exec_always '$HOME/dots/sway/import-gtk-settings'
 
