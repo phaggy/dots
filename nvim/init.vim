@@ -11,6 +11,8 @@ autocmd vimenter * ++nested colorscheme gruvbox
 
 call plug#begin('~/.vim/plugged')
 
+" python code formatter
+Plug 'psf/black', { 'branch': 'stable' }
 Plug 'preservim/nerdtree'
 Plug 'mattn/emmet-vim'
 Plug 'ap/vim-css-color'
@@ -41,7 +43,7 @@ call plug#end()
 
 let g:UltiSnipsExpandTrigger="<C-l>"
 
-map <C-n> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeToggle <bar> :NERDTreeRefreshRoot<CR>
 let g:NERDTreeChDirMode=2
 let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__', 'node_modules']
 let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
@@ -51,8 +53,10 @@ let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
 
 map <C-d> :Files<CR>
 " fuzzy search
-map <C-g> :G<CR>
+map <C-g> :Git status<CR>
 " git status
+map <C-S-g> :G<CR>
+" git status - more info
 map <C-a> :Gwrite<CR>
 " git add
 map <C-g>r :Git restore --staged ''%:p''<CR>
@@ -240,3 +244,6 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+" runs black on save
+autocmd BufWritePre *.py execute ':Black'
