@@ -9,6 +9,8 @@ set $menu wofi --show drun --allow-images
 exec "wal -R"
 output * bg /usr/share/backgrounds/default.jpg fill
 
+bindsym $mod+s exec grim -g "$(slurp -d)" - | wl-copy
+
 bindsym $mod+b exec firefox
 
 bindsym $mod+e exec "kitty -e ranger"
@@ -143,5 +145,6 @@ exec /usr/lib/kdeconnectd
 exec /usr/bin/lxqt-policykit-agent
 exec "gtk-launch org.kde.kdeconnect.nonplasma.desktop"
 exec_always '$HOME/dots/sway/import-gtk-settings'
+exec /usr/lib/geoclue-2.0/demos/agent
 
 include /etc/sway/config.d/*
