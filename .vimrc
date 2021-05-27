@@ -3,4 +3,4 @@ nmap <C-s> :w<CR>
 map <C-x> :x<CR>
 map <C-q> :q!<CR>
 set mouse=a
-autocmd BufWritePre *.py execute ':Black'
+set autoread
