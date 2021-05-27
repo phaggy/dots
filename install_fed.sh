@@ -56,9 +56,9 @@ case $dist in
 
            git checkout otherLaptop
        
-           progs=('alacritty' 'kitty' 'vim' 'mako' 'ranger' 'rofi' 'waybar' 'fish' 'discord' 'neovim' 'python-pywal' 'firefox' 'qt5ct' 'lxappearance' 'python-pip' 'nodejs' 'light' 'polkit' 'kdeconnect' 'gparted' 'openssh' 'pulseaudio' 'xdg-user-dirs' 'man-db' 'adobe-source-han-sans-otc-fonts' 'cronie')
+           progs=('sway' 'alacritty' 'kitty' 'vim' 'mako' 'ranger' 'rofi' 'waybar' 'fish' 'discord' 'neovim' 'python-pywal' 'firefox' 'qt5ct' 'lxappearance' 'python-pip' 'nodejs' 'light' 'polkit' 'polkit-gnome' 'kdeconnect' 'gparted' 'openssh' 'pulseaudio' 'xdg-user-dirs' 'man-db' 'adobe-source-han-sans-otc-fonts' 'cronie' 'tmux' 'grim' 'neofetch' 'thunderbird' 'trash-cli')
            symProgs=('alacritty' 'kitty' 'vim' 'sway' 'mako' 'ranger' 'rofi' 'waybar')
-           aurProgs=('spotify' 'spotify-adblock-git' 'ttf-kannada-font' 'appimagelauncher' 'polkit-dumb-agent-git' 'sway-borders-git')
+           aurProgs=('spotify' 'spotify-adblock-git' 'ttf-kannada-font' 'appimagelauncher' 'visual-studio-code-bin' 'wl-clipboard-git')
            
            echo 'symlinkin'
            for prog in ${symProgs[@]}; do
@@ -70,6 +70,9 @@ case $dist in
            ln -sv $HOME/dots/.vimrc $HOME/
 	   rm -frv $HOME/.config/nvim
            ln -sv $HOME/dots/nvim $HOME/.config/
+	   rm -frv $HOME/.config/.tmux.conf
+           ln -sv $HOME/dots/.tmux.conf $HOME/.config/
+           
            
            echo 'installing progs'
            
