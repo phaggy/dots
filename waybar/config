@@ -7,7 +7,7 @@
 
     "modules-left": ["sway/workspaces", "custom/media"],
     "modules-center": ["clock"],
-    "modules-right": ["network", "battery", "pulseaudio", "tray"],
+    "modules-right": ["custom/net","network", "battery", "pulseaudio", "tray"],
      "sway/workspaces": {
      "persistent_workspaces": {
         "1": [],
@@ -117,7 +117,7 @@
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{icon}",
         "format-icons": ["󰤢","󰤥","󰤨"],
-        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+        "format-ethernet": "eth",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
         "on-click": "alacritty -e nmtui"
@@ -152,5 +152,8 @@
         "escape": true,
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    },
+    "custom/net": {
+    "exec":"nm-applet --indicator"
     }
 }
