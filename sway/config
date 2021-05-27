@@ -9,7 +9,9 @@ set $menu wofi --show drun --allow-images
 exec "wal -R"
 output * bg /usr/share/backgrounds/default.jpg fill
 
-bindsym $mod+s exec grim -g "$(slurp -d)" - | wl-copy
+bindsym $mod+ctrl+s exec grim -g "$(slurp -d)" - | wl-copy
+# flameshot git works on wayland
+bindsym $mod+s exec flameshot gui
 
 bindsym $mod+b exec firefox
 
@@ -17,8 +19,8 @@ bindsym $mod+e exec "kitty -e ranger"
 
 bindsym $mod+c exec '$term -e nvim'
 
-bindsym $mod+Return exec $term
-
+bindsym $mod+Return exec $term 
+bindsym $mod+Shift+Return exec $term -e tmux
 bindsym $mod+q kill
 
 bindsym $mod+d exec $menu
@@ -129,20 +131,26 @@ input 2:14:ETPS/2_Elantech_Touchpad {
     pointer_accel 0.1 # set mouse sensitivity (between -1 and 1)
 }
 
+for_window [app_id="org.dolphin-emu.dolphin-emu"] floating enable
 for_window [app_id="zoom"] floating enable
+for_window [app_id="lutris"] floating enable
 for_window [app_id="firefox"] floating enable
 for_window [app_id="Steam"] floating enable
 for_window [app_id="lxqt-policykit-agent"] floating enable
-border_images.focused $HOME/dots/sway/rounded_and_shadows_small.png
-border_images.unfocused $HOME/dots/sway/rounded_small.png
+for_window [shell="xwayland"] title_format "%title [XWayland]"
+#border_images.focused $HOME/dots/sway/rounded_and_shadows_small.png
+#border_images.unfocused $HOME/dots/sway/rounded_small.png
 
 font JetBrainsMono 10
 gaps inner 10
 default_border none
 exec_always 'launchwaybar'
+exec autotiling
 exec mako
+exec_always $HOME/xdg-shit.sh
 exec /usr/lib/kdeconnectd
-exec /usr/bin/lxqt-policykit-agent
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+#exec /usr/bin/lxqt-policykit-agent
 exec "gtk-launch org.kde.kdeconnect.nonplasma.desktop"
 exec_always '$HOME/dots/sway/import-gtk-settings'
 exec /usr/lib/geoclue-2.0/demos/agent
