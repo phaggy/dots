@@ -433,7 +433,7 @@ debug:
   #   - Info
   #   - Debug
   #   - Trace
-  log_level: None
+  log_level: OFF
 
   # Print all received window events.
   print_events: false
