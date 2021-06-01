@@ -1,9 +1,14 @@
 {
   "eslint.autoFixOnSave": true,
-  "eslint.filetypes": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+  "eslint.filetypes": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
   "tsserver.formatOnType": true,
   "coc.preferences.formatOnType": true,
-  "html.filetypes":[
+  "html.filetypes": [
     "html",
     "handlebars",
     "htmldjango",
@@ -12,8 +17,9 @@
     "js",
     "css"
   ],
-  "html.format.indentInnerHtml":true,
-  "html.autoClosingTags":true,
-  "sh.enable":true
+  "html.format.indentInnerHtml": true,
+  "html.autoClosingTags": true,
+  "sh.enable": true,
+  "rest-client.enable": true,
+  "rest-client.showHeaders": true
 }
-
