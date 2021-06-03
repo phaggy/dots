@@ -14,11 +14,13 @@ bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
 bspc rule -a Gimp desktop='^8' state=floating follow=on
-bspc rule -a Chromium desktop='^2'
 bspc rule -a mplayer2 state=floating
+bspc rule -a firefox desktop='^1' state=tiled
+bspc rule -a firefox-developer-edition desktop='^1' state=tiled
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
-bspc rule -a Spotify state=floating
+bspc rule -a zoom desktop='^7' state=floating
+bspc rule -a spotify desktop='^8'state=floating 
 
 # source the colors.
 . "${HOME}/.cache/wal/colors.sh"
@@ -50,6 +52,8 @@ dunst &
 flameshot &
 
 ~/.config/polybar/launch.sh &
+
+polkit-dumb-agent&
 
 sleep 3
 gtk-launch org.kde.kdeconnect.nonplasma.desktop &
