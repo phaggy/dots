@@ -29,38 +29,64 @@ Plug 'prettier/vim-prettier', {
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 " Theme
+" Plug 'fratajczak/one-monokai-vim'
+" Plug 'rakr/vim-one'
 Plug 'joshdick/onedark.vim'
-Plug 'fratajczak/one-monokai-vim'
-Plug 'rakr/vim-one'
+Plug 'ajmwagar/vim-deus'
+
 " javascript syntax highlighting
-Plug 'pangloss/vim-javascript'
+" Plug 'pangloss/vim-javascript'
+Plug 'sheerun/vim-polyglot'
+
 Plug 'jiangmiao/auto-pairs' " closes brackets
+
 Plug 'ryanoasis/vim-devicons' " icons for nerd tree
-"Plug 'HerringtonDarkholme/yats.vim' " syntax highlighting for jsx and typescript
+
 Plug 'airblade/vim-gitgutter' " shows git changes in files
-"Plug 'epilande/vim-react-snippets' 
-"Plug 'SirVer/ultisnips'
+
 " git add and commit from vim itself
 Plug 'tpope/vim-fugitive'
 "Plug 'yuezk/vim-js'
 Plug 'tpope/vim-commentary'
+
+" work with rest in vim
+Plug 'diepm/vim-rest-console'
+
 " Initialize plugin system
 call plug#end()
 
 source ~/.vimrc
-syntax on
+set fillchars=eob:\ , "Removes ~ before the start of every line
+let g:powerline_pycmd = 'py3'
+set laststatus=2
 
 " Theme section
 "autocmd vimenter * ++nested colorscheme one-monokai
-colorscheme one
+colorscheme deus
 set background=dark
-set termguicolors
 "airline section"
 " provide custom statusline: lightline.vim, vim-airline.
 "set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-let g:airline_theme='one'
+let g:airline_theme='deus'
+let g:airline#extensions#tabline#enabled = 1 "tabline
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#formatter = 'jsformatter'
+" let g:airline#extensions#tabline#left_sep = ' '
+" let g:airline#extensions#tabline#left_alt_sep = '>'
 
-let g:UltiSnipsExpandTrigger="<C-l>"
+"reload file
+nnoremap <leader><C-r> :source $HOME/dots/nvim/init.vim<CR><CR>
+
+" disable the rest somethings default mapping
+let g:vrc_set_default_mapping = 0
+" binding the rest request thing to leader+mr, mr for make request
+nnoremap <leader>mr :call VrcQuery()<CR>
+
+"rest thing, this basically gives cleaner output
+let g:vrc_curl_opts = {
+      \ '-s':'',
+      \ '-i':'',
+    \}
 
 " NerdTree section
 map <C-n> :NERDTreeToggle <bar> :NERDTreeRefreshRoot<CR>
@@ -72,8 +98,8 @@ let g:nerdtree_tabs_focus_on_files=1
 let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
 
 
-let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
+" let g:prettier#autoformat = 0
+" autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
 
 map <C-d> :Files<CR>
 " fuzzy search
@@ -151,45 +177,11 @@ else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
 
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
-
-" Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-
-augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder.
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
-
-
-" Map function and class text objects
-" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
-xmap if <Plug>(coc-funcobj-i)
-omap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap af <Plug>(coc-funcobj-a)
-xmap ic <Plug>(coc-classobj-i)
-omap ic <Plug>(coc-classobj-i)
-xmap ac <Plug>(coc-classobj-a)
-omap ac <Plug>(coc-classobj-a)
 
 " Remap <C-f> and <C-b> for scroll float windows/popups.
 " Note coc#float#scroll works on neovim >= 0.4.0 or vim >= 8.2.0750
@@ -209,9 +201,6 @@ endif
 " Requires 'textDocument/selectionRange' support of language server.
 "nmap <silent> <C-s> <Plug>(coc-range-select)
 "xmap <silent> <C-s> <Plug>(coc-range-select)
-
-" Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocAction('format')
 
 " Add `:Fold` command to fold current buffer.
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
