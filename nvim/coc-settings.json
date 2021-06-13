@@ -19,7 +19,5 @@
   ],
   "html.format.indentInnerHtml": true,
   "html.autoClosingTags": true,
-  "sh.enable": true,
-  "rest-client.enable": true,
-  "rest-client.showHeaders": true
+  "sh.enable": true
 }
