@@ -6,6 +6,9 @@
 super + Return
 	alacritty
 
+super + shift + Return
+	alacritty -e tmux
+
 # program launcher
 super + d
 	rofi -show drun
