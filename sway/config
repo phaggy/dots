@@ -13,7 +13,7 @@ bindsym $mod+ctrl+s exec grim -g "$(slurp -d)" - | wl-copy
 # flameshot git works on wayland
 bindsym $mod+s exec flameshot gui
 
-bindsym $mod+b exec firefox
+bindsym $mod+b exec firefox-developer-edition
 
 bindsym $mod+e exec "kitty -e ranger"
 

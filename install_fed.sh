@@ -56,9 +56,10 @@ case $dist in
 
            git checkout otherLaptop
        
-           progs=('sway' 'alacritty' 'kitty' 'vim' 'mako' 'ranger' 'rofi' 'waybar' 'fish' 'discord' 'neovim' 'python-pywal' 'firefox' 'qt5ct' 'lxappearance' 'python-pip' 'nodejs' 'light' 'polkit' 'polkit-gnome' 'kdeconnect' 'gparted' 'openssh' 'pulseaudio' 'xdg-user-dirs' 'man-db' 'adobe-source-han-sans-otc-fonts' 'cronie' 'tmux' 'grim' 'neofetch' 'thunderbird' 'trash-cli')
+           progs=('sway' 'alacritty' 'kitty' 'vim' 'mako' 'ranger' 'rofi' 'waybar' 'fish' 'discord' 'neovim' 'python-pywal' 'firefox' 'qt5ct' 'lxappearance' 'python-pip' 'nodejs' 'light' 'polkit' 'polkit-gnome' 'kdeconnect' 'gparted' 'openssh' 'xdg-user-dirs' 'man-db' 'cronie' 'tmux' 'grim' 'neofetch' 'thunderbird' 'trash-cli' 'tmux' 'wget')
            symProgs=('alacritty' 'kitty' 'vim' 'sway' 'mako' 'ranger' 'rofi' 'waybar')
-           aurProgs=('spotify' 'spotify-adblock-git' 'ttf-kannada-font' 'appimagelauncher' 'visual-studio-code-bin' 'wl-clipboard-git')
+#           aurProgs=('spotify' 'spotify-adblock-git' 'ttf-kannada-font' 'appimagelauncher' 'visual-studio-code-bin' 'wl-clipboard-git')
+           aurProgs=('appimagelauncher' 'visual-studio-code-bin' 'wl-clipboard-git')
            
            echo 'symlinkin'
            for prog in ${symProgs[@]}; do
@@ -88,8 +89,9 @@ case $dist in
      ln -sv $HOME/.cache/wal/colors-waybar.css $HOME/.config/waybar/
 	
 	   echo "copying fonts"
+     wget -nc "https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/JetBrainsMono/Ligatures/Regular/complete/JetBrains%20Mono%20Regular%20Nerd%20Font%20Complete%20Mono.ttf?raw=true" -O ~/Downloads/
 	   sudo cp $(pwd)/fonts/materialdesignicons-webfont.ttf /usr/share/fonts
-	   sudo cp $(pwd)/fonts/'JetBrains Mono Bold Italic Nerd Font Complete.ttf' /usr/share/fonts
+	   sudo cp $HOME/Downloads/'JetBrains Mono Regular Nerd Font Complete Mono.ttf' /usr/share/fonts
      
      #echo "setting environment variables"
      #touch ~/.profile
