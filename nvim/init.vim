@@ -19,6 +19,8 @@ Plug 'neoclide/coc-eslint' "eslint
 Plug 'sheerun/vim-polyglot' "js,json,jsx etc syntax highlighting
 Plug 'ap/vim-css-color' " css preview color
 Plug 'chrisbra/Colorizer' " hex to color
+Plug 'hail2u/vim-css3-syntax' "css syntax highlighting
+Plug 'cakebaker/scss-syntax.vim' "scss syntax highlighting
 
 " Themes
 Plug 'ajmwagar/vim-deus'
