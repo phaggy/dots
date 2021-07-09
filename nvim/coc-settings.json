@@ -19,5 +19,21 @@
   ],
   "html.format.indentInnerHtml": true,
   "html.autoClosingTags": true,
-  "sh.enable": true
+  "sh.enable": true,
+  "languageserver": {
+    "ccls": {
+      "command": "ccls",
+      "filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
+      "rootPatterns": [".ccls-root", "compile_commands.json"],
+      "initializationOptions": {
+        "cache": {
+          "directory": ".ccls-cache",
+          "highlight": { "lsRanges": true }
+        },
+        "client": {
+          "snippetSupport": true
+        }
+      }
+    }
+  }
 }
