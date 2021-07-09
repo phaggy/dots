@@ -21,10 +21,11 @@ Plug 'ap/vim-css-color' " css preview color
 Plug 'chrisbra/Colorizer' " hex to color
 Plug 'hail2u/vim-css3-syntax' "css syntax highlighting
 Plug 'cakebaker/scss-syntax.vim' "scss syntax highlighting
+" Plug 'jackguo380/vim-lsp-cxx-highlight' "C/C++ highlighting
 
 " Themes
 Plug 'ajmwagar/vim-deus'
-" Plug 'fratajczak/one-monokai-vim'
+Plug 'fratajczak/one-monokai-vim'
 " Plug 'rakr/vim-one'
 " Plug 'joshdick/onedark.vim'
 
@@ -155,6 +156,17 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 " Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => COC misc
