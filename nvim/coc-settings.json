@@ -6,8 +6,11 @@
     "typescript",
     "typescriptreact"
   ],
-  "tsserver.formatOnType": true,
-  "coc.preferences.formatOnType": true,
+  "tsserver.formatOnType": false,
+  "tsserver.reportStyleChecksAsWarnings": false,
+  "javascript.showUnused": false,
+  "javascript.validate.enable": false,
+  "coc.preferences.formatOnType": false,
   "html.filetypes": [
     "html",
     "handlebars",

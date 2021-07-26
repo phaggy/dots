@@ -99,7 +99,7 @@ let g:vrc_curl_opts = {
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => NERDTree 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <C-n> :NERDTreeToggle <bar> :NERDTreeRefreshRoot<CR>
+map <C-n> :NERDTreeToggle <CR>
 autocmd VimEnter * NERDTree "Toggles Nerdtree on vim open
 let NERDTreeQuitOnOpen = 1 "closes NerdTree when opening a file
 
