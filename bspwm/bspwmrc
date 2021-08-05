@@ -44,8 +44,6 @@ xset fp rehash
 
 wal -R &
 
-picom --vsync &
-
 pkill "dunst"
 dunst &
 
