@@ -1,6 +1,7 @@
 {
+  "coc.preferences.formatOnSaveFiletypes": ["rust"],
   "eslint.autoFixOnSave": true,
-  "eslint.filetypes": [
+  "eslint.validate": [
     "javascript",
     "javascriptreact",
     "typescript",
@@ -10,6 +11,7 @@
   "tsserver.reportStyleChecksAsWarnings": false,
   "javascript.showUnused": false,
   "javascript.validate.enable": false,
+  "typescript.validate.enable": true,
   "coc.preferences.formatOnType": false,
   "html.filetypes": [
     "html",

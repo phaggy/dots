@@ -12,26 +12,28 @@ call plug#begin('~/.vim/plugged')
 " formatters
 Plug 'psf/black', { 'branch': 'stable' } " python formatter
 Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] } " js,json etv formatter
+  \ 'do': 'npm install',
+  \ 'for': ['javascript', 'typescript','javascriptreact', 'typescriptreact', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] } " js,json etv formatter
 
-"Auto-complete/intellisense
+" Auto-complete/intellisense
 Plug 'neoclide/coc.nvim'
 
 " linters
-Plug 'neoclide/coc-eslint' "eslint
+Plug 'neoclide/coc-eslint' "eslint does not work with eslint 8.x
+" set runtimepath^=~/src/coc-eslint "locally built with pr that allegedly makes it work with 8.x
 
 " Syntax highlighting
 Plug 'sheerun/vim-polyglot' "js,json,jsx etc syntax highlighting
 Plug 'ap/vim-css-color' " css preview color
 Plug 'chrisbra/Colorizer' " hex to color
+Plug 'leafgarland/typescript-vim' "typescript highlighting
 " Plug 'jackguo380/vim-lsp-cxx-highlight' "C/C++ highlighting
 
 " Themes
 Plug 'ajmwagar/vim-deus'
 Plug 'fratajczak/one-monokai-vim'
 " Plug 'rakr/vim-one'
-" Plug 'joshdick/onedark.vim'
+Plug 'joshdick/onedark.vim'
 
 Plug 'vim-airline/vim-airline-themes' " Airline
 Plug 'vim-airline/vim-airline' 
@@ -59,6 +61,9 @@ source ~/.vimrc
 set fillchars=eob:\ , "Removes ~ before the start of every line
 "let g:powerline_pycmd = 'py3'
 set laststatus=2
+set termguicolors
+syntax on
+filetype plugin indent on
 " set timeoutlen=1000        " speed vim up
 " set ttimeoutlen=0          " https://stackoverflow.com/questions/37644682/why-is-vim-so-slow/37645334
 " set ttyfast                " Rendering
@@ -99,9 +104,14 @@ let g:vrc_curl_opts = {
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => NERDTree 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <C-n> :NERDTreeToggle <CR>
+map <C-n> :NERDTreeToggle <bar> :NERDTreeRefreshRoot<CR>
 autocmd VimEnter * NERDTree "Toggles Nerdtree on vim open
 let NERDTreeQuitOnOpen = 1 "closes NerdTree when opening a file
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => typescript 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:typescript_indent_disable = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Prettier
