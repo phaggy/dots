@@ -1,4 +1,4 @@
-@import 'colors-waybar.css';
+@import "colors-waybar.css";
 
 * {
   border: none;
@@ -8,7 +8,7 @@
 }
 
 window#waybar {
-  background-color:transparent;
+  background-color: transparent;
   color: @foreground;
   transition-property: background-color;
   transition-duration: 1.5s;
@@ -29,8 +29,7 @@ window#waybar {
 }
 
 #workspaces button.visible {
-  box-shadow: inset 0 -0px #887E61;
-
+  box-shadow: inset 0 -0px #887e61;
 }
 
 #workspaces button.focused {
@@ -47,7 +46,7 @@ window#waybar {
 }
 
 #clock {
-  font-family: Jetbrains Mono Medium Nerd Font; 
+  font-family: Jetbrains Mono Medium Nerd Font;
   font-size: 15px;
   padding: 2px 9px 2px 9px;
   margin: 2px 0 0 0;
@@ -83,8 +82,8 @@ window#waybar {
   padding: 2px 9px 2px 9px;
   margin: 2px 0 0 0;
   font-size: 17px;
-  background-color: transparent; 
-  color: #8FBCBB;
+  background-color: transparent;
+  color: #8fbcbb;
 }
 
 #network.disconnected {
@@ -102,7 +101,7 @@ window#waybar {
 
 #pulseaudio.muted {
   background-color: @background;
-  color: #D08770;
+  color: #d08770;
 }
 
 #tray {
