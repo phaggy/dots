@@ -3,7 +3,7 @@ set $mod Mod4
 #set $down j
 #set $up k
 #set $right l
-set $term alacritty
+set $term kitty
 set $menu wofi --show drun --allow-images
 
 exec "wal -R"
@@ -133,8 +133,9 @@ input 2:14:ETPS/2_Elantech_Touchpad {
 
 for_window [app_id="org.dolphin-emu.dolphin-emu"] floating enable
 for_window [app_id="zoom"] floating enable
+assign [app_id="zoom"] 7
 for_window [app_id="lutris"] floating enable
-for_window [app_id="firefox"] floating enable
+for_window [app_id="firefoxdeveloperedition"] floating enable
 for_window [app_id="Steam"] floating enable
 for_window [app_id="lxqt-policykit-agent"] floating enable
 for_window [shell="xwayland"] title_format "%title [XWayland]"
@@ -144,6 +145,7 @@ for_window [shell="xwayland"] title_format "%title [XWayland]"
 font JetBrainsMono 10
 gaps inner 10
 default_border none
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec_always 'launchwaybar'
 exec autotiling
 exec mako
