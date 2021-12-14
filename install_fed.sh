@@ -87,6 +87,9 @@ case $dist in
      wal -s -i /usr/share/backgrounds/default.jpg
      rm -v $HOME/.config/waybar/colors-waybar.css
      ln -sv $HOME/.cache/wal/colors-waybar.css $HOME/.config/waybar/
+
+     echo "tpm"
+     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 	
 	   echo "copying fonts"
      wget -nc "https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/JetBrainsMono/Ligatures/Regular/complete/JetBrains%20Mono%20Regular%20Nerd%20Font%20Complete%20Mono.ttf?raw=true" -O ~/Downloads/
