@@ -1,5 +1,6 @@
 #! /bin/sh
 
+export QT_QPA_PLATFORMTHEME='qt5ct'
 bspc rule -r "*"
 
 pgrep -x sxhkd > /dev/null || sxhkd &
@@ -8,14 +9,12 @@ bspc monitor -d 1 2 3 4 5 6 7 8 9 10
 
 bspc config border_width         1
 bspc config window_gap           10
-bspc config border_radius        8
 bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
 bspc rule -a Gimp desktop='^8' state=floating follow=on
 bspc rule -a mplayer2 state=floating
-bspc rule -a firefox desktop='^1' state=tiled
 bspc rule -a firefox-developer-edition desktop='^1' state=tiled
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
@@ -46,12 +45,15 @@ wal -R &
 
 pkill "dunst"
 dunst &
+picom &
 
 flameshot &
+# logitech
+solaar &
 
 ~/.config/polybar/launch.sh &
 
-polkit-dumb-agent&
+polkit-dumb-agent &
 
 sleep 3
 gtk-launch org.kde.kdeconnect.nonplasma.desktop &

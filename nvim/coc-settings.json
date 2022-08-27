@@ -6,8 +6,10 @@
     "typescript",
     "typescriptreact"
   ],
+  "codeLens.enable": false,
   "tsserver.formatOnType": false,
   "tsserver.reportStyleChecksAsWarnings": false,
+  "tsserver.log": "verbose",
   "javascript.showUnused": false,
   "javascript.validate.enable": false,
   "coc.preferences.formatOnType": false,
@@ -18,7 +20,8 @@
     "blade",
     "jsx",
     "js",
-    "css"
+    "css",
+    "liquid"
   ],
   "html.format.indentInnerHtml": true,
   "html.autoClosingTags": true,
@@ -38,5 +41,19 @@
         }
       }
     }
-  }
+  },
+  "snippets.extends": {
+    "typescript": ["javascript"],
+    "typescriptreact": ["javascript"]
+  },
+  "rust-analyzer.lens.enable": true,
+  "rust-analyzer.inlayHints.enable": false,
+  "svelte.enable-ts-plugin": true,
+  "java.format.settings.url": "/home/hay/.config/coc/extensions/node_modules/redhat.java/eclipse-formatter.xml",
+  "java.configuration.runtimes": [
+    {
+      "name": "JavaSE-11",
+      "path": "/usr/lib/jvm/java-11-openjdk/bin/java"
+    }
+  ]
 }

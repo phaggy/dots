@@ -86,7 +86,7 @@ font:
     # style: "Medium Italic"
 
   # Point size of the font
-  size: 10.0
+  size: 11.0
 
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
@@ -178,7 +178,7 @@ colors:
 # To completely disable the visual bell, set its duration to 0.
 
 # Background opacity
-background_opacity: 1
+window.opacity: 1
 
 # Key bindings
 #

@@ -7,10 +7,11 @@ call plug#begin('~/.vim/plugged')
 Plug 'psf/black', { 'branch': 'stable' } " python formatter
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] } " js,json etv formatter
+  \ 'for': ['javascript','javascriptreact', 'typescript','typescriptreact', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html','svelte'] } " js,json etv formatter
+Plug 'rhysd/vim-clang-format' "C/C++ formatter
 
 "Auto-complete/intellisense
-Plug 'neoclide/coc.nvim'
+Plug 'neoclide/coc.nvim',{'branch': 'release'}
 
 " linters
 Plug 'neoclide/coc-eslint' "eslint
@@ -29,7 +30,8 @@ Plug 'fratajczak/one-monokai-vim'
 " Plug 'rakr/vim-one'
 " Plug 'joshdick/onedark.vim'
 
-Plug 'vim-airline/vim-airline-themes' " Airline
+" Airline
+Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-airline/vim-airline' 
 
 " Utils
@@ -44,6 +46,10 @@ Plug 'airblade/vim-gitgutter' " shows git changes in files
 Plug 'tpope/vim-fugitive' "git add remove commit push rebase etc all without ever having to leave vim
 Plug 'diepm/vim-rest-console' "very much like vscode rest extension, make http requests from vim
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  } " vim markdown preview
+Plug 'Yggdroot/indentLine' "shows line indents
+
+" Live browser
+Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
 
 " Initialize plugin system
 call plug#end()
@@ -62,6 +68,11 @@ set laststatus=2
 "reload init.vim
 nnoremap <leader><C-r> :source $HOME/dots/nvim/init.vim<CR><CR>
 set autoread                  " reload files
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => IndentLine 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:indentLine_setColors = 0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Theme 
@@ -95,9 +106,10 @@ let g:vrc_curl_opts = {
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => NERDTree 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <C-n> :NERDTreeToggle <CR>
+map <C-n> :NERDTreeToggle <bar> :NERDTreeRefreshRoot<CR>
 autocmd VimEnter * NERDTree "Toggles Nerdtree on vim open
 let NERDTreeQuitOnOpen = 1 "closes NerdTree when opening a file
+let g:NERDTreeIgnore = ['^node_modules$']
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Prettier
@@ -120,12 +132,14 @@ map <C-a> :Gwrite<CR>
 " git add
 map <C-g>r :Git restore --staged ''%:p''<CR>
 " removes staged file
-map <C-c> :Git commit<CR>
+" map <C-c> :Git commit<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => fzf
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <C-d> :Files<CR>
+nnoremap <leader>cd :Rg<CR>
+command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
 " fuzzy search
 
 " nnoremap <silent> K :call CocAction('doHover')<CR>
@@ -133,20 +147,39 @@ map <C-d> :Files<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => COC
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" use <tab> for trigger completion and navigate to the next complete item
-function! s:check_back_space() abort
+" rename
+nmap <leader>rn <Plug>(coc-rename)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1):
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice.
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+function! CheckBackspace() abort
   let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
+  return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
-      \ coc#refresh()
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
 
-" use enter to select completion
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
 
 "coc-snippets expand and jump
 imap <C-j> <Plug>(coc-snippets-expand-jump)
@@ -156,6 +189,7 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 " Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>

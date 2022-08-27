@@ -1,57 +1,66 @@
-/*
- *
- * Author : Aditya Shakya (adi1090x)
- * Mail : adi1090x@gmail.com
- * Github : @adi1090x
- * Reddit : @adi1090x
- *
- */
-
 * {
   accent:           #44ad4d;
   background:       #0d0403;       
   background-light: #C19C4D;
-  foreground:       #E4E4E4;
+  /* foreground:       #E4E4E4; */
+  foreground:       argb:FFE4E4E4;
   on:               #44ad4d;
   off:              #e34039;
-}
-
-* {
-  /* General */
   text-font:                            "JetBrainsMono 12";
   icon-font:                            "JetBrainsMono Nerd Font 15";
   menu-element-padding:                 4px 14px 4px 0px;
-}
-
-#window {
-  width: 19%;
-  height: 3.5%;
-  anchor: north;
-  location: north;
-  y-offset: 2px;
-  border: 0px;
-  border-radius: 6px;
-}
-
-* {
-  background-color: @background;
   text-color: @foreground;
   font: @icon-font;
 }
 
+#window {
+  height: 3.5%;
+  location: north;
+  y-offset: 32px;
+  border-radius: 12px;
+  opacity:0;
+  children: [ horibox ];
+}
+
 #horibox {
-  children: [ listview ];
+  orientation: horizontal;
+  background-color: argb:FF444444;
+  children: [ dummy1, listview,dummy2 ];
 }
 
 #listview {
   layout: horizontal;
+  lines: 6;
+  background-color: argb:FF444444;
+}
+
+#dummy1,dummy2 {
+  expand: true;
+  background-color: argb:FF444444;
 }
 
 #element {
+  horizontal-align: 1;
   border: 0px;
   border-radius: 6px;
-  padding: 1px;
+  padding: 5px;
   background-color: @background-light;
+  margin: 0 5px 0 0;
+  font: @icon-font;
+  border: @menu-element-border;
+  padding: @menu-element-padding;
+  border-color: @background-light;
+  margin-right: 20px;
+}
+
+element-text,element-icon {
+  text-color: inherit;
+  background-color: inherit;
+  padding: 0 0.3em 0 0.3em;
+}
+
+element-icon {
+  background-color: black;
 }
 
 #element.selected {
@@ -59,30 +68,6 @@
   text-color: @foreground;
 }
 
-* {
-  font: @text-font;
-}
-
-#window {
-  padding: 1px;
-  children: [ inputbar, horibox ];
-}
-
-#inputbar {
-  enabled: false;
-  children: [ textbox-prompt-colon, prompt ];
-}
-
-#listview {
-  lines: 6;
-}
-
-#element {
-  font: @icon-font;
-  border: @menu-element-border;
-  padding: @menu-element-padding;
-  border-color: @background-light;
-}
 
 #element.selected {
   border-color: @accent;

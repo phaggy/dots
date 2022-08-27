@@ -19,7 +19,7 @@ super + e
 
 # firefox
 super + b
-        firefox
+        firefox-developer-edition
    
 # discord
 alt + d 
@@ -65,7 +65,7 @@ super + shift + r
 
 # powermenu
 super + {l}
-        /bin/bash ~/.config/polybar/scripts/powermenu.sh 
+	/bin/bash ~/.config/polybar/scripts/powermenu.sh 
 
 # close and kill
 super + {_,shift + }q
