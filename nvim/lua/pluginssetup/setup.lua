@@ -1,6 +1,7 @@
 require("mason").setup()
 require("mason-lspconfig").setup()
 
+require("cmp")
 require("telescope")
 -- Treesitter config
 require('nvim-treesitter.configs').setup {
@@ -12,6 +13,5 @@ require('nvim-treesitter.configs').setup {
 		additional_vim_regex_highlighting = false,
 	},
 }
-require("cmp")
 require("lualine").setup()
 require("nvim-tree").setup()

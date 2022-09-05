@@ -7,6 +7,6 @@ end
 
 require('ryn/settings') -- vim settings
 require('ryn/plugins') -- plugins download
+require('pluginssetup/setup') -- plugins config
 require('ryn/keymaps') -- keymaps
 require('lsp/ls-setup') -- setting up language servers
-require('pluginssetup/setup') -- plugins config

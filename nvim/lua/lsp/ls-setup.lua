@@ -1,13 +1,41 @@
 local lspconfig = require("lspconfig")
 local updated_capabilites = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
+-- disabling inline messages
+vim.diagnostic.config({
+	-- virtual_text = false,
+	signs = true,
+	underline = true,
+	update_in_insert = true,
+	severity_sort = false,
+})
+
+-- Show line diagnostics automatically in hover window
+-- vim.o.updatetime = 250
+-- vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor"})]]
+
 local function lsp_keymaps()
+	vim.api.nvim_create_autocmd("CursorHold", {
+		buffer = bufnr,
+		callback = function()
+			local opts = {
+				focusable = false,
+				close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+				border = 'rounded',
+				source = 'always',
+				prefix = ' ',
+				scope = 'cursor',
+			}
+			vim.diagnostic.open_float(nil, opts)
+		end
+	})
 	vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0 })
 	vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = 0 })
 	vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { buffer = 0 })
 	vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, { buffer = 0 })
 	vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = 0 })
-	vim.keymap.set("n", "<leader>dj", vim.diagnostic.goto_next, { buffer = 0 })
+	vim.keymap.set("n", "n[", vim.diagnostic.goto_prev, { buffer = 0 })
+	vim.keymap.set("n", "n]", vim.diagnostic.goto_next, { buffer = 0 })
 	vim.keymap.set("n", "<leader>f", vim.lsp.buf.formatting, { buffer = 0 })
 end
 
