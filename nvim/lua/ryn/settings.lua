@@ -1,20 +1,24 @@
 local g = vim.g
-local o = vim.o
+local set = vim.opt
 
-
-o.termguicolors = true
-o.fillchars='eob: ' -- Removes ~ before start of line
-o.number = true
-o.autoindent = true
-o.clipboard='unnamedplus'
-o.ignorecase  = true -- ignore case for searches
-o.smartcase = true -- case sensitive if one of the characters is capital
-o.autoread = true -- auto-reload files
-o.mouse='a'
-o.syntax='enable'
-o.signcolumn='yes' -- symbol and number column colapses into one column
-o.incsearch = true -- realtime search
-o.background = 'dark'
+set.termguicolors = true
+set.cursorline = true -- highlights the current line in the editor
+set.fillchars='eob: ' -- Removes ~ before start of line
+set.number = true
+set.autoindent = true
+set.tabstop = 2 -- number of spaces for tabs
+set.shiftwidth=2 -- number of spaces when indenting the text
+set.clipboard='unnamedplus'
+set.ignorecase  = true -- ignore case for searches
+set.smartcase = true -- case sensitive if one of the characters is capital
+set.autoread = true -- auto-reload files
+set.mouse='a'
+set.syntax='enable'
+set.signcolumn='yes' -- symbol and number column colapses into one column
+set.incsearch = true -- realtime search
+set.background = 'dark'
+set.completeopt = "noinsert,menuone,noselect" -- better completion
+set.wildmenu = true -- better completion menu
 
 vim.cmd('colorscheme deus')
 -- vim.g.catppuccin_flavour = "frappe" -- latte, frappe, macchiato, mocha

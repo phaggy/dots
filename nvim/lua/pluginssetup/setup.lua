@@ -1,7 +1,6 @@
 require("mason").setup()
 require("mason-lspconfig").setup()
 
-require("cmp")
 require("telescope")
 -- Treesitter config
 require('nvim-treesitter.configs').setup {
