@@ -12,19 +12,19 @@ end
 local packer_bootstrap = ensure_packer()
 
 return require('packer').startup({
-	function(use)
+function(use)
 
 -- Language server auto-install
 use 'williamboman/mason.nvim'
 use 'williamboman/mason-lspconfig.nvim'
 
 -- Treesitter
- use(
-            {
-                'nvim-treesitter/nvim-treesitter',
-                 run = ':TSUpdate',
-            }
-        )
+use(
+    {
+	'nvim-treesitter/nvim-treesitter',
+	 run = ':TSUpdate',
+    }
+)
 
 -- Telescope
 use 'nvim-lua/popup.nvim'
@@ -32,11 +32,11 @@ use 'nvim-lua/plenary.nvim'
 use 'nvim-telescope/telescope.nvim'
 use 'kyazdani42/nvim-web-devicons' --File type icons
 use {
-  'kyazdani42/nvim-tree.lua',
-  requires = {
-    'kyazdani42/nvim-web-devicons', -- optional, for file icons
-  },
-  tag = 'nightly' -- optional, updated every week. (see issue #1193)
+'kyazdani42/nvim-tree.lua',
+requires = {
+'kyazdani42/nvim-web-devicons', -- optional, for file icons
+},
+tag = 'nightly' -- optional, updated every week. (see issue #1193)
 } --NerdTree alternative
 
 -- Faster telescope search algorithm
@@ -47,11 +47,10 @@ use 'neovim/nvim-lspconfig'
 
 --LSP autocomplete
 use({ 'hrsh7th/nvim-cmp',
-	config = function()
-			require("pluginssetup.cmp")
-		end
+config = function()
+		require("pluginssetup.cmp")
+	end
 })
-
 use 'hrsh7th/cmp-nvim-lsp'
 use 'hrsh7th/cmp-buffer'
 use 'hrsh7th/cmp-path'
@@ -70,8 +69,8 @@ use { "catppuccin/nvim", as = "catppuccin" }
 -- use 'vim-airline/vim-airline-themes'
 -- use 'vim-airline/vim-airline' 
 use {
-  'nvim-lualine/lualine.nvim',
-  requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+'nvim-lualine/lualine.nvim',
+requires = { 'kyazdani42/nvim-web-devicons', opt = true }
 }
 
 -- Util
@@ -83,6 +82,7 @@ use 'tpope/vim-fugitive' --git add remove commit push rebase etc all without eve
 use 'diepm/vim-rest-console' --very much like vscode rest extension, make http requests from vim
 use({'iamcco/markdown-preview.nvim', run='cd app && yarn install'}) -- vim markdown preview
 --use 'Yggdroot/indentLine' --shows line indents
+use({'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}) -- pretty buffer tabs
 end,
 })
 
