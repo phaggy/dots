@@ -53,7 +53,5 @@ solaar &
 
 ~/.config/polybar/launch.sh &
 
-polkit-dumb-agent &
-
 sleep 3
 gtk-launch org.kde.kdeconnect.nonplasma.desktop &

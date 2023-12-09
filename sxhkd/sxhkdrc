@@ -25,6 +25,9 @@ super + b
 alt + d 
         com.discordapp.Discord
 
+alt + s
+				alacritty -e spt
+
 # flameshot
 super + s
         flameshot gui
