@@ -1,0 +1,20 @@
+[user]
+	email = rynmalik26@gmail.com
+	name = Rayyan Malik
+	username = raaaaayn
+
+[init]
+	defaultBranch = main
+#[url "ssh://git@github.com/"]
+#	insteadOf = https://github.com/
+[safe]
+	directory = /opt/flutter
+
+[alias]
+	a = add
+	l = log --pretty=oneline --decorate --graph
+	la = log --pretty=oneline -n 8
+	ls = log --pretty=oneline --stat
+	b = branch
+	co = checkout
+	lp = log --pretty=format:'%C(bold yellow)%h%Creset %C(dim white)%cd%Creset %s %C(bold yellow)%d%Creset %C(dim white)-> %an (%C(dim white)%cr)%Creset' --date=format-local:'%d-%m-%Y %H:%M' --graph -n 8
